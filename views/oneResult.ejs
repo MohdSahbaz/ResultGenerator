@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data.name %> Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      color: maroon;
+      background-color: aquamarine;
+      padding: 20px 0;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+    .header h1 {
+      margin: 0;
+    }
+    .header p {
+      margin: 5px 0 0;
+    }
+    .newResult {
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between; /* Align items horizontally with space between */
+    }
+    .newResult a, button {
+      text-decoration: none;
+      color: #333;
+      background-color: #ffdab9;
+      border: 1px solid #333;
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+    .newResult a:hover, button:hover {
+      background-color: #ffb6c1;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    td h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+    .res {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Solker College</h1>
+      <p>Solker College of IT</p>
+    </div>
+    <div class="newResult">
+      <a href="/editResult/<%= data.id %>">Edit Result</a>
+      <form action="/delete/<%= data.id %>?_method=DELETE" method="POST">
+        <button>Delete Result</button>
+      </form>
+    </div>
+    <h3>Result</h3>
+    <div class="result">
+      <table>
+        <tr>
+          <td><h3>Name:</h3></td>
+          <td><h3><%= data.name %></h3></td>
+        </tr>
+        <tr>
+          <td><h3>Roll No:</h3></td>
+          <td><h3><%= data.rn %></h3></td>
+        </tr>
+        <tr>
+          <td><h3>Std:</h3></td>
+          <td><h3><%= data.std %></h3></td>
+        </tr>
+        <tr>
+          <td><h3>CGPA:</h3></td>
+          <td><h3><%= data.cgpa %></h3></td>
+        </tr>
+        <tr>
+          <td colspan="2"><h3 class="res">Result: <%= data.result %></h3></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
