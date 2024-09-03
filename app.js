@@ -56,10 +56,10 @@ app.put("/saveResult/:id", async (req, res) => {
 });
 
 // delete result
-app.delete("/delete/:id", async(req, res) => {
+app.delete("/delete/:id", async (req, res) => {
   const { id } = req.params;
   await SyResult.findByIdAndDelete(id);
   res.redirect("/");
-})
+});
 
-app.listen(port);
+app.listen(port, () => console.log("Server runnig on port " + port));
